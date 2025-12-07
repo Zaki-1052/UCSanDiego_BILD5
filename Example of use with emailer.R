@@ -33,3 +33,20 @@ for(i in 1:length(emaillist[,6])){
 
 }
 
+#Names of the checkpoint 2 csv files to attach
+checkpoint2_files <- paste(emaillist[,5], "_Checkpoint2.csv", sep="")
+
+#send checkpoint 2 email to each student on the list
+for(i in 1:length(emaillist[,6])){
+
+  #compose checkpoint 2 email
+  my_email <- my_outlook$create_email(
+    "Here is your input results from checkpoint 2.",
+    subject = "BILD 5 Fall 25_Final project data request form result",
+    to = emaillist[i,6]
+  )$add_attachment(checkpoint2_files[i])
+
+  my_email$send()
+
+}
+

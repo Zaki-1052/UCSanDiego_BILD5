@@ -18,6 +18,10 @@ fignames<-paste(BILD_Data[,3],"_",BILD_Data[,2],".pdf",sep="")#Names for the key
 for(i in 1:length(BILD_Data[,4])){
   set.seed(BILD_Data[i,4])
 
+  #Save student's form inputs as Checkpoint 2 file
+  checkpoint2_name <- paste(BILD_Data[i,5], "_Checkpoint2.csv", sep="")
+  write.csv(x = BILD_Data[i,], file = checkpoint2_name, row.names = FALSE)
+
    #####Two Sample T#####
 
   if(BILD_Data[i,7]=="2 sample t-test"){
